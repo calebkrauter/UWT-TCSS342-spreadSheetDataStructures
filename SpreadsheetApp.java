@@ -5,6 +5,11 @@
  * @author Donald Chinn
  */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
 public class SpreadsheetApp {
     
     /**
@@ -41,7 +46,7 @@ public class SpreadsheetApp {
     
         System.out.println("Enter the cell: ");
         inputString = readString();
-        getCellToken(inputString, 0, cellToken);
+        theSpreadsheet.getCellToken(inputString, 0, cellToken);
     
         System.out.println(printCellToken(cellID));
         System.out.println(": ");
@@ -70,45 +75,69 @@ public class SpreadsheetApp {
         String inputFormula;
         CellToken cellToken;
         Stack expTreeTokenStack;
-        // ExpressionTreeToken expTreeToken;
+        ExpressionTreeToken expTreeToken;
     
         System.out.println("Enter the cell to change: ");
         inputCell = readString();
-        theSpreadsheet.getCellToken (inputCell, 0, cellToken);
+        theSpreadsheet.getCellToken(inputCell, 0, cellToken);
     
         // error check to make sure the row and column
         // are within spreadsheet array bounds.
         if ((cellToken.getRow() < 0) ||
-            (cellToken.getRow() >= theSpreadsheet.getNumRows()) ||
-            (cellToken.getColumn() < 0) ||
-            (cellToken.getColumn() >= theSpreadsheet.getNumColumns()) ) {
-            
+                (cellToken.getRow() >= theSpreadsheet.getNumRows()) ||
+                (cellToken.getColumn() < 0) ||
+                (cellToken.getColumn() >= theSpreadsheet.getNumColumns())) {
+    
             System.out.println("Bad cell.");
             return;
         }
     
         System.out.println("Enter the cell's new formula: ");
         inputFormula = readString();
-        expTreeTokenStack = getFormula (inputFormula);
+        expTreeTokenStack = theSpreadsheet.getFormula(inputFormula);
     
-        /*
+    
         // This code prints out the expression stack from
         // top to bottom (that is, reverse of postfix).
-        while (!expTreeTokenStack.isEmpty())
-        {
-            expTreeToken = expTreeTokenStack.topAndPop();
+        while (!expTreeTokenStack.isEmpty()) {
+            expTreeToken = (ExpressionTreeToken) expTreeTokenStack.pop();
             printExpressionTreeToken(expTreeToken);
         }
-        */
+    
     
         theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, expTreeTokenStack);
         System.out.println();
     }
     
+    
+    
+    /**
+     * Return a string associated with a token
+     *
+     * @param expTreeToken an ExpressionTreeToken
+     * @return a String associated with expTreeToken
+     */
+    String printExpressionTreeToken(Token expTreeToken) {
+        String returnString = "";
+        
+        if (expTreeToken instanceof OperatorToken) {
+            returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
+        } else if (expTreeToken instanceof CellToken) {
+            returnString = printCellToken((CellToken) expTreeToken) + " ";
+        } else if (expTreeToken instanceof LiteralToken) {
+            returnString = ((LiteralToken) expTreeToken).getValue() + " ";
+        } else {
+            // This case should NEVER happen
+            System.out.println("Error in printExpressionTreeToken.");
+            System.exit(0);
+        }
+        return returnString;
+    }
+    
     public static void main(String[] args) {
         Spreadsheet theSpreadsheet = new Spreadsheet(8);
 
-        bool done = false;
+        boolean done = false;
         String command = "";
     
         System.out.println(">>> Welcome to the TCSS 342 Spreadsheet <<<");
@@ -122,10 +151,10 @@ public class SpreadsheetApp {
             System.out.println("f: print out a cell's formula");
             System.out.println("a: print all cell formulas");
             System.out.println("c: change the formula of a cell");
-    /* BONUS
+            /* BONUS
             System.out.println("r: read in a spreadsheet from a textfile");
             System.out.println("s: save the spreadsheet to a textfile");
-     */
+             */
             System.out.println();
             System.out.println("q: quit");
     
