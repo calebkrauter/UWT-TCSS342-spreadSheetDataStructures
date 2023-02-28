@@ -2,15 +2,16 @@ import java.util.Stack;
 
 public class Spreadsheet {
     
-    private Cell[][] cellArray;
-    
     private static final int BAD_CELL = -1;
+    
+    static private Cell[][] cellArray;
     
     public Spreadsheet(int size) {
         cellArray = new Cell[size][size];
     }
     
-    public void printValues() {
+    public static void printValues() {
+    
     }
     
     public int getNumColumns() {
@@ -21,10 +22,18 @@ public class Spreadsheet {
         return cellArray.length;
     }
     
-    public void printCellToken(CellToken cellToken) {
+    // temp method
+    public String printCellToken(CellToken cellToken) {
+        String returnString = String.valueOf(cellToken.getRow());
+        returnString += cellToken.getColumn();
+        return returnString;
     }
     
-    public void printCellFormula(CellToken cellToken) {
+    // temp method
+    public String printCellFormula(CellToken cellToken) {
+        String returnString = String.valueOf(cellToken.getRow());
+        returnString += cellToken.getColumn();
+        return returnString;
     }
     
     public void printAllFormulas() {
@@ -278,12 +287,11 @@ public class Spreadsheet {
         
         if (error) {
             // a parse error; return the empty stack
-            returnStack.makeEmpty();
+            //returnStack.makeEmpty();
         }
         
         return returnStack;
     }
-    
     /**
      * Return true if the char ch is an operator of a formula.
      * Current operators are: +, -, *, /, (.
@@ -310,7 +318,6 @@ public class Spreadsheet {
      * @param ch a char
      * @return the priority of the operator
      */
-    
     int operatorPriority(char ch) {
         if (!isOperator(ch)) {
             // This case should NEVER happen
@@ -331,5 +338,10 @@ public class Spreadsheet {
                 System.exit(0);
                 break;
         }
+        return 0;
+    }
+    
+    void changeCellFormulaAndRecalculate(CellToken cellToken, Stack expTreeTokenStack) {
+    
     }
 }

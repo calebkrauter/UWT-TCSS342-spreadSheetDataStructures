@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Stack;
 
 public class SpreadsheetApp {
-    
+
     /**
      * Read a string from standard input.
      * All characters up to the first carriage return are read.
@@ -22,9 +22,9 @@ public class SpreadsheetApp {
         BufferedReader inputReader;
         String returnString = "";
         char ch;
-        
+
         inputReader = new BufferedReader (new InputStreamReader(System.in));
-        
+
         // read all characters up to a carriage return and append them
         // to the return String
         try {
@@ -35,95 +35,93 @@ public class SpreadsheetApp {
         }
         return returnString;
     }
-    
+
     private static void menuPrintValues(Spreadsheet theSpreadsheet) {
         theSpreadsheet.printValues();
     }
-    
+
     private static void menuPrintCellFormula(Spreadsheet theSpreadsheet) {
         CellToken cellToken = new CellToken();
         String inputString;
-    
+
         System.out.println("Enter the cell: ");
         inputString = readString();
         theSpreadsheet.getCellToken(inputString, 0, cellToken);
-    
-        System.out.println(printCellToken(cellID));
+
+        theSpreadsheet.printCellToken(cellToken);
         System.out.println(": ");
-    
+
         if ((cellToken.getRow() < 0) ||
             (cellToken.getRow() >= theSpreadsheet.getNumRows()) ||
             (cellToken.getColumn() < 0) ||
             (cellToken.getColumn() >= theSpreadsheet.getNumColumns())) {
-            
+
             System.out.println("Bad cell.");
             return;
         }
     
-        theSpreadsheet.printCellFormula(cellToken);
+        System.out.println(theSpreadsheet.printCellFormula(cellToken));
         System.out.println();
     }
-    
+
     private static void menuPrintAllFormulas(Spreadsheet theSpreadsheet) {
         theSpreadsheet.printAllFormulas();
         System.out.println();
     }
-    
-    
+
+
     private static void menuChangeCellFormula(Spreadsheet theSpreadsheet) {
         String inputCell;
         String inputFormula;
-        CellToken cellToken;
+        CellToken cellToken = new CellToken();
         Stack expTreeTokenStack;
         ExpressionTreeToken expTreeToken;
-    
+
         System.out.println("Enter the cell to change: ");
         inputCell = readString();
         theSpreadsheet.getCellToken(inputCell, 0, cellToken);
-    
+
         // error check to make sure the row and column
         // are within spreadsheet array bounds.
         if ((cellToken.getRow() < 0) ||
                 (cellToken.getRow() >= theSpreadsheet.getNumRows()) ||
                 (cellToken.getColumn() < 0) ||
                 (cellToken.getColumn() >= theSpreadsheet.getNumColumns())) {
-    
+
             System.out.println("Bad cell.");
             return;
         }
-    
+
         System.out.println("Enter the cell's new formula: ");
         inputFormula = readString();
         expTreeTokenStack = theSpreadsheet.getFormula(inputFormula);
-    
-    
+
+
         // This code prints out the expression stack from
         // top to bottom (that is, reverse of postfix).
         while (!expTreeTokenStack.isEmpty()) {
             expTreeToken = (ExpressionTreeToken) expTreeTokenStack.pop();
-            printExpressionTreeToken(expTreeToken);
+            printExpressionTreeToken(expTreeToken, theSpreadsheet);
         }
-    
-    
+
+
         theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, expTreeTokenStack);
         System.out.println();
     }
-    
-    
-    
+
     /**
      * Return a string associated with a token
      *
      * @param expTreeToken an ExpressionTreeToken
      * @return a String associated with expTreeToken
      */
-    String printExpressionTreeToken(Token expTreeToken) {
+    static String printExpressionTreeToken(Token expTreeToken, Spreadsheet theSpreadsheet) { //added spreadsheet param to make method work
         String returnString = "";
-        
+
         if (expTreeToken instanceof OperatorToken) {
             returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
         } else if (expTreeToken instanceof CellToken) {
-            returnString = printCellToken((CellToken) expTreeToken) + " ";
+            returnString = theSpreadsheet.printCellToken((CellToken) expTreeToken) + " ";
         } else if (expTreeToken instanceof LiteralToken) {
             returnString = ((LiteralToken) expTreeToken).getValue() + " ";
         } else {
@@ -133,17 +131,17 @@ public class SpreadsheetApp {
         }
         return returnString;
     }
-    
+
     public static void main(String[] args) {
         Spreadsheet theSpreadsheet = new Spreadsheet(8);
 
         boolean done = false;
         String command = "";
-    
+
         System.out.println(">>> Welcome to the TCSS 342 Spreadsheet <<<");
         System.out.println();
         System.out.println();
-    
+
         while (!done) {
             System.out.println("Choose from the following commands:");
             System.out.println();
@@ -157,51 +155,51 @@ public class SpreadsheetApp {
              */
             System.out.println();
             System.out.println("q: quit");
-    
+
             System.out.println();
             System.out.println("Enter your command: ");
             command = readString();
-    
+
             // We care only about the first character of the string
             switch (command.charAt(0)) {
                 case 'p':
                     menuPrintValues(theSpreadsheet);
                     break;
-        
+
                 case 'f':
                     menuPrintCellFormula(theSpreadsheet);
                     break;
-        
+
                 case 'a':
                     menuPrintAllFormulas(theSpreadsheet);
                     break;
-        
+
                 case 'c':
                     menuChangeCellFormula(theSpreadsheet);
                     break;
-        
+
                     /* BONUS:
                 case 'r':
                     menuReadSpreadsheet(theSpreadsheet);
                     break;
-        
+
                 case 's':
                     menuSaveSpreadsheet(theSpreadsheet);
                     break;
                     */
-        
+
                 case 'q':
                     done = true;
                     break;
-        
+
                 default:
                     System.out.println(command.charAt(0) + ": Bad command.");
                     break;
             }
             System.out.println();
-    
+
         }
-    
+
         System.out.println("Thank you for using our spreadsheet.");
     }
 
