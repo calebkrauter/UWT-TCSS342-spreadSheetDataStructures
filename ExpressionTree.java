@@ -3,11 +3,12 @@ import java.util.Stack;
 public class ExpressionTree {
     private ExpressionTreeNode root;
     
+    public ExpressionTree() {}; // added contructor
     public void makeEmpty(){};
-    public void printTree(){};
+    public void printTree(){ print(root); };
     public int Evaluate(Spreadsheet spreadsheet){ return 0; };
     
-    public ExpressionTreeNode GetExpressionTree(Stack s) {
+    private ExpressionTreeNode GetExpressionTree(Stack s) {
         ExpressionTreeNode returnTree;
         Token token;
         
@@ -17,9 +18,8 @@ public class ExpressionTree {
         token = (Token) s.pop();  // need to handle stack underflow
         if ((token instanceof LiteralToken) ||
                 (token instanceof CellToken) ) {
-            
             // Literals and Cells are leaves in the expression tree
-            returnTree = new ExpressionTreeNode(token, null, null);
+        	returnTree = new ExpressionTreeNode(token, null, null);
             return returnTree;
         } else if (token instanceof OperatorToken) {
             // Continue finding tokens that will form the
@@ -31,5 +31,17 @@ public class ExpressionTree {
             return returnTree;
         }
         return null;
+    }
+    
+    void BuildExpressionTree (Stack s) {
+    	root = GetExpressionTree(s);
+    }
+    
+    private void print(ExpressionTreeNode n) {
+    	if (n == null)
+    		return;
+    	
+    	print(n.left);
+    	print(n.right);
     }
 }

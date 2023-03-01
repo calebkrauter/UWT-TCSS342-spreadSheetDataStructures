@@ -8,10 +8,14 @@ public class Spreadsheet {
     
     public Spreadsheet(int size) {
         cellArray = new Cell[size][size];
+        for (int r = 0; r < size; r++) {
+        	for (int c = 0; c < size; c++) {
+        		cellArray[r][c] = new Cell();
+        	}
+        }
     }
     
     public static void printValues() {
-    
     }
     
     public int getNumColumns() {
@@ -23,17 +27,8 @@ public class Spreadsheet {
     }
     
     // temp method
-    public String printCellToken(CellToken cellToken) {
-        String returnString = String.valueOf(cellToken.getRow());
-        returnString += cellToken.getColumn();
-        return returnString;
-    }
-    
-    // temp method
     public String printCellFormula(CellToken cellToken) {
-        String returnString = String.valueOf(cellToken.getRow());
-        returnString += cellToken.getColumn();
-        return returnString;
+        return cellArray[cellToken.getRow()][cellToken.getColumn()].getFormula();
     }
     
     public void printAllFormulas() {
@@ -342,6 +337,6 @@ public class Spreadsheet {
     }
     
     void changeCellFormulaAndRecalculate(CellToken cellToken, Stack expTreeTokenStack) {
-    
+    	cellArray[cellToken.getRow()][cellToken.getColumn()].setFormula(expTreeTokenStack);
     }
 }

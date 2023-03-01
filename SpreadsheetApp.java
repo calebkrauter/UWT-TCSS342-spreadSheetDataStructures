@@ -48,7 +48,7 @@ public class SpreadsheetApp {
         inputString = readString();
         theSpreadsheet.getCellToken(inputString, 0, cellToken);
 
-        theSpreadsheet.printCellToken(cellToken);
+        System.out.println(cellToken);
         System.out.println(": ");
 
         if ((cellToken.getRow() < 0) ||
@@ -75,7 +75,7 @@ public class SpreadsheetApp {
         String inputFormula;
         CellToken cellToken = new CellToken();
         Stack expTreeTokenStack;
-        ExpressionTreeToken expTreeToken;
+        Token expTreeToken;
 
         System.out.println("Enter the cell to change: ");
         inputCell = readString();
@@ -96,16 +96,14 @@ public class SpreadsheetApp {
         inputFormula = readString();
         expTreeTokenStack = theSpreadsheet.getFormula(inputFormula);
 
-
         // This code prints out the expression stack from
         // top to bottom (that is, reverse of postfix).
         while (!expTreeTokenStack.isEmpty()) {
-            expTreeToken = (ExpressionTreeToken) expTreeTokenStack.pop();
-            printExpressionTreeToken(expTreeToken, theSpreadsheet);
+            expTreeToken = (Token) expTreeTokenStack.pop();
+            System.out.println(printExpressionTreeToken(expTreeToken));
         }
 
-
-        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, expTreeTokenStack);
+        //theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, expTreeTokenStack);
         System.out.println();
     }
 
@@ -115,13 +113,13 @@ public class SpreadsheetApp {
      * @param expTreeToken an ExpressionTreeToken
      * @return a String associated with expTreeToken
      */
-    static String printExpressionTreeToken(Token expTreeToken, Spreadsheet theSpreadsheet) { //added spreadsheet param to make method work
+    static String printExpressionTreeToken(Token expTreeToken) {
         String returnString = "";
 
         if (expTreeToken instanceof OperatorToken) {
             returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
         } else if (expTreeToken instanceof CellToken) {
-            returnString = theSpreadsheet.printCellToken((CellToken) expTreeToken) + " ";
+            returnString = ((CellToken) expTreeToken).getValue() + " ";
         } else if (expTreeToken instanceof LiteralToken) {
             returnString = ((LiteralToken) expTreeToken).getValue() + " ";
         } else {
@@ -182,7 +180,6 @@ public class SpreadsheetApp {
                 case 'r':
                     menuReadSpreadsheet(theSpreadsheet);
                     break;
-
                 case 's':
                     menuSaveSpreadsheet(theSpreadsheet);
                     break;

@@ -20,4 +20,10 @@ public class CellToken extends Token {
     public int getRow() {
         return row;
     }
+    
+    public String getValue() {
+    	String returnString = Character.toString('A' + column);
+        returnString += row;
+        return returnString;
+    }
 }

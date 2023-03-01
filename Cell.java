@@ -10,8 +10,20 @@ public class Cell {
     public Cell() {
         formula = "";
         value = 0;
+        expressionTree = new ExpressionTree();
     }
     
-    public void Evaluate (Spreadsheet spreadsheet) {};
-
+    public void Evaluate (Spreadsheet spreadsheet) {
+    	
+    }
+    
+    public String getFormula() {
+    	return formula;
+    }
+    
+    public void setFormula(Stack expTreeTokenStack) {
+    	expressionTree.BuildExpressionTree(expTreeTokenStack);
+    	// not working
+    	expressionTree.printTree();
+    }
 }
