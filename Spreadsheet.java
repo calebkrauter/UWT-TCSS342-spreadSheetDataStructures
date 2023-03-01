@@ -337,6 +337,7 @@ public class Spreadsheet {
     }
     
     void changeCellFormulaAndRecalculate(CellToken cellToken, Stack expTreeTokenStack) {
+    	//System.out.println(cellToken + " " + expTreeTokenStack);
     	cellArray[cellToken.getRow()][cellToken.getColumn()].setFormula(expTreeTokenStack);
     }
 }

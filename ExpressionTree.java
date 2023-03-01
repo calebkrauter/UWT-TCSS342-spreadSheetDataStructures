@@ -12,8 +12,13 @@ public class ExpressionTree {
         ExpressionTreeNode returnTree;
         Token token;
         
-        if (s.isEmpty())
+        System.out.println("Ran");
+        
+        if (s.isEmpty()) {
+        	System.out.println("Stack is empty");
+        	// never reaching
             return null;
+        }
         
         token = (Token) s.pop();  // need to handle stack underflow
         if ((token instanceof LiteralToken) ||
@@ -30,6 +35,7 @@ public class ExpressionTree {
                     new ExpressionTreeNode(token, leftSubtree, rightSubtree);
             return returnTree;
         }
+        // never reaching
         return null;
     }
     
@@ -38,10 +44,12 @@ public class ExpressionTree {
     }
     
     private void print(ExpressionTreeNode n) {
+    	//System.out.println(root.getToken());
     	if (n == null)
     		return;
     	
     	print(n.left);
+    	System.out.println(n.getToken());
     	print(n.right);
     }
 }

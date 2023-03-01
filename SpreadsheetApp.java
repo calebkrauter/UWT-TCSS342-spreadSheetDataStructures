@@ -48,7 +48,7 @@ public class SpreadsheetApp {
         inputString = readString();
         theSpreadsheet.getCellToken(inputString, 0, cellToken);
 
-        System.out.println(cellToken);
+        System.out.println(cellToken.getValue());
         System.out.println(": ");
 
         if ((cellToken.getRow() < 0) ||
@@ -98,12 +98,16 @@ public class SpreadsheetApp {
 
         // This code prints out the expression stack from
         // top to bottom (that is, reverse of postfix).
+        
+        Stack s2 = theSpreadsheet.getFormula(inputFormula);
+        
         while (!expTreeTokenStack.isEmpty()) {
             expTreeToken = (Token) expTreeTokenStack.pop();
             System.out.println(printExpressionTreeToken(expTreeToken));
         }
-
-        //theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, expTreeTokenStack);
+        
+        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, s2);
+        
         System.out.println();
     }
 

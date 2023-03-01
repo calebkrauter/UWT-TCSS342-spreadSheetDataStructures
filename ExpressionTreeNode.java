@@ -6,4 +6,8 @@ public class ExpressionTreeNode {
     
     public ExpressionTreeNode(Token token, ExpressionTreeNode leftSubtree, ExpressionTreeNode rightSubtree) {
     }
+    
+    public Token getToken() {
+    	return token;
+    }
 }
