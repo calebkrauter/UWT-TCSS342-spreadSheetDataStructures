@@ -5,6 +5,8 @@
  * @author Donald Chinn
  */
 
+import view.DisplayGui;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -121,8 +123,12 @@ public class SpreadsheetApp {
         return returnString;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Spreadsheet theSpreadsheet = new Spreadsheet(3);
+
+        // Display the GUI
+        DisplayGui startGui = new DisplayGui();
+
 
         boolean done = false;
         String command = "";
