@@ -15,36 +15,44 @@ public class Cell {
     }
     
     public void Evaluate (Spreadsheet spreadsheet) {
-    	
+    	value = expressionTree.Evaluate(spreadsheet);
     }
     
     public String getFormula() {
         return formula;
     }
     
-    public void setFormula(String s) {
-    	formula = s;
-    	expressionTree.BuildExpressionTree(getFormula(s));
+    public int getValue() {
+    	return value;
     }
     
-    public void setFormula(Stack expTreeTokenStack) {
-//    	while (!expTreeTokenStack.isEmpty()) {
-//            Token expTreeToken = (Token) expTreeTokenStack.pop();
-//            if (expTreeToken instanceof OperatorToken) {
-//            	System.out.println(((OperatorToken) expTreeToken).getOperatorToken());
-//            } else if (expTreeToken instanceof CellToken) {
-//            	System.out.println(((CellToken) expTreeToken).getValue());
-//            } else if (expTreeToken instanceof LiteralToken) {
-//            	System.out.println(((LiteralToken) expTreeToken).getValue());
-//            } else {
-//                // This case should NEVER happen
-//                System.out.println("Error in printExpressionTreeToken.");
-//            }
-//        }
-    	expressionTree.BuildExpressionTree(expTreeTokenStack);
-    	//System.out.println(expTreeTokenStack);
-    	// not working
-    	expressionTree.printTree();
+    public void setFormula(String s) {
+    	expressionTree.BuildExpressionTree(getFormula(s));
+    	formula = expressionTree.printTree();
+    	System.out.println("Setted Formula: " + formula);
+    }
+    
+    /**
+     * Return a string associated with a token
+     *
+     * @param expTreeToken an ExpressionTreeToken
+     * @return a String associated with expTreeToken
+     */
+    static String printExpressionTreeToken(Token expTreeToken) {
+        String returnString = "";
+
+        if (expTreeToken instanceof OperatorToken) {
+            returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
+        } else if (expTreeToken instanceof CellToken) {
+            returnString = ((CellToken) expTreeToken).getValue() + " ";
+        } else if (expTreeToken instanceof LiteralToken) {
+            returnString = ((LiteralToken) expTreeToken).getValue() + " ";
+        } else {
+            // This case should NEVER happen
+            System.out.println("Error in printExpressionTreeToken.");
+            System.exit(0);
+        }
+        return returnString;
     }
     
     /**

@@ -72,7 +72,6 @@ public class SpreadsheetApp {
 
     private static void menuChangeCellFormula(Spreadsheet theSpreadsheet) {
         String inputCell;
-        String inputFormula;
         CellToken cellToken = new CellToken();
         Stack expTreeTokenStack;
         Token expTreeToken;
@@ -93,20 +92,8 @@ public class SpreadsheetApp {
         }
 
         System.out.println("Enter the cell's new formula: ");
-        inputFormula = readString();
-        expTreeTokenStack = theSpreadsheet.getFormula(inputFormula);
-
-        // This code prints out the expression stack from
-        // top to bottom (that is, reverse of postfix).
         
-        Stack s2 = theSpreadsheet.getFormula(inputFormula);
-        
-        while (!expTreeTokenStack.isEmpty()) {
-            expTreeToken = (Token) expTreeTokenStack.pop();
-            System.out.println(printExpressionTreeToken(expTreeToken));
-        }
-        
-        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, inputFormula);
+        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, readString());
         
         System.out.println();
     }
