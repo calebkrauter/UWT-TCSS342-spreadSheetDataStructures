@@ -32,6 +32,12 @@ public class Spreadsheet {
     }
     
     public void printAllFormulas() {
+        for (int i = 0; i < cellArray.length; i++) {
+            for (int j = 0; j < cellArray.length; j++) {
+                System.out.print("|" + cellArray[i][j].getFormula() + "|");
+            }
+            System.out.println();
+        }
     }
     
     /**
@@ -336,8 +342,8 @@ public class Spreadsheet {
         return 0;
     }
     
-    void changeCellFormulaAndRecalculate(CellToken cellToken, Stack expTreeTokenStack) {
+    void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
     	//System.out.println(cellToken + " " + expTreeTokenStack);
-    	cellArray[cellToken.getRow()][cellToken.getColumn()].setFormula(expTreeTokenStack);
+    	cellArray[cellToken.getRow()][cellToken.getColumn()].setFormula(s);
     }
 }

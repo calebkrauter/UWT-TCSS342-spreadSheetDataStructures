@@ -3,9 +3,17 @@ import java.util.Stack;
 public class ExpressionTree {
     private ExpressionTreeNode root;
     
-    public ExpressionTree() {}; // added contructor
-    public void makeEmpty(){};
-    public void printTree(){ print(root); };
+    // Constructor with no root
+    public ExpressionTree() {
+        root = null;
+    }
+    
+    public void makeEmpty(){
+        root = null;
+    }
+    public void printTree() {
+        print(root);
+    }
     public int Evaluate(Spreadsheet spreadsheet){ return 0; };
     
     private ExpressionTreeNode GetExpressionTree(Stack s) {
@@ -40,11 +48,10 @@ public class ExpressionTree {
     }
     
     void BuildExpressionTree (Stack s) {
-    	root = GetExpressionTree(s);
+        root = GetExpressionTree(s);
     }
     
     private void print(ExpressionTreeNode n) {
-    	//System.out.println(root.getToken());
     	if (n == null)
     		return;
     	

@@ -4,10 +4,13 @@ public class ExpressionTreeNode {
     ExpressionTreeNode left;
     ExpressionTreeNode right;
     
-    public ExpressionTreeNode(Token token, ExpressionTreeNode leftSubtree, ExpressionTreeNode rightSubtree) {
+    public ExpressionTreeNode(Token theToken, ExpressionTreeNode leftSubtree, ExpressionTreeNode rightSubtree) {
+        token = theToken;
+        left = leftSubtree;
+        right = rightSubtree;
     }
     
     public Token getToken() {
-    	return token;
+        return token;
     }
 }

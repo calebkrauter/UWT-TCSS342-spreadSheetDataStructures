@@ -48,8 +48,8 @@ public class SpreadsheetApp {
         inputString = readString();
         theSpreadsheet.getCellToken(inputString, 0, cellToken);
 
-        System.out.println(cellToken.getValue());
-        System.out.println(": ");
+        System.out.print(cellToken.getValue());
+        System.out.print(": ");
 
         if ((cellToken.getRow() < 0) ||
             (cellToken.getRow() >= theSpreadsheet.getNumRows()) ||
@@ -60,7 +60,7 @@ public class SpreadsheetApp {
             return;
         }
     
-        System.out.println(theSpreadsheet.printCellFormula(cellToken));
+        System.out.print(theSpreadsheet.printCellFormula(cellToken));
         System.out.println();
     }
 
@@ -106,7 +106,7 @@ public class SpreadsheetApp {
             System.out.println(printExpressionTreeToken(expTreeToken));
         }
         
-        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, s2);
+        theSpreadsheet.changeCellFormulaAndRecalculate(cellToken, inputFormula);
         
         System.out.println();
     }
@@ -135,7 +135,7 @@ public class SpreadsheetApp {
     }
 
     public static void main(String[] args) {
-        Spreadsheet theSpreadsheet = new Spreadsheet(8);
+        Spreadsheet theSpreadsheet = new Spreadsheet(3);
 
         boolean done = false;
         String command = "";
