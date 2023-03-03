@@ -7,11 +7,19 @@ public class Cell {
     private int value;
     // the expression tree below represents the formula
     private ExpressionTree expressionTree;
+    private int amountOfCells = 0;
     
     public Cell() {
+        setCellAmount(amountOfCells++);
         formula = "";
         value = 0;
         expressionTree = new ExpressionTree();
+    }
+    private void setCellAmount(int amountOfCells) {
+        this.amountOfCells = amountOfCells;
+    }
+    public int getCellAmount() {
+        return this.amountOfCells;
     }
     
     public void Evaluate (Spreadsheet spreadsheet) {
@@ -29,7 +37,7 @@ public class Cell {
     public void setFormula(String s) {
     	expressionTree.BuildExpressionTree(getFormula(s));
     	formula = expressionTree.printTree();
-    	System.out.println("Setted Formula: " + formula);
+    	System.out.println("Formula set too: " + formula);
     }
     
     /**
