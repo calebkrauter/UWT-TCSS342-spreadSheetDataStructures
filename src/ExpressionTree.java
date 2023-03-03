@@ -20,8 +20,7 @@ public class ExpressionTree {
     public int Evaluate(Spreadsheet spreadsheet) {
     	return evalTree(spreadsheet, root);
     }
-
-    // TODO - It looks like this function operates on given cells like A1 + B3 ?
+    
     private int evalTree(Spreadsheet spreadsheet, ExpressionTreeNode n) {
     	if (n == null)
     		return 0;
@@ -80,8 +79,7 @@ public class ExpressionTree {
     public void BuildExpressionTree (Stack s) {
         root = GetExpressionTree(s);
     }
-
-    // TODO - When will this get used? Will we be using this for outputting to cells?
+    
     private void print(ExpressionTreeNode n, StringBuilder sb) {
     	if (n == null)
     		return;
