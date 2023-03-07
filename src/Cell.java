@@ -58,7 +58,7 @@ public class Cell {
     	formula = s;
     	if (s.length() == 0)
     		value = 0;
-    	references.clear();
+    	
     	System.out.println("Setted Formula: " + formula);
     }
     

@@ -356,6 +356,12 @@ public class Spreadsheet {
     
     void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
     	Cell c = cellArray[cellToken.getRow()][cellToken.getColumn()];
+    	// dereferences itself from dependents first
+    	if (c.getDependents() != null) {
+    		for (CellToken ct: c.getDependents()) {
+    			cellArray[ct.getRow()][ct.getColumn()].removeReferences(c);
+    		}
+    	}
     	c.setFormula(s);
     	// goes through the cells that it is dependent on and reference itself on them
     	if (c.getDependents() != null) {
@@ -369,7 +375,9 @@ public class Spreadsheet {
     	for (int row = 0; row < cellArray.length; row++) {
     		for (int col = 0; col < cellArray.length; col++) {
         		indegrees[row][col] = cellArray[row][col].getIndegrees();
+        		System.out.print(indegrees[row][col] + " ");
         	}
+    		System.out.println();
     	}
     	
     	// sorts the cells and puts it in a stack to evaluate the cells in correct order
