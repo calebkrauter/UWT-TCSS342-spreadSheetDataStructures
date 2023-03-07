@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Stack;
 
 public class Spreadsheet {
@@ -16,6 +18,12 @@ public class Spreadsheet {
     }
     
     public static void printValues() {
+    	for (int i = 0; i < cellArray.length; i++) {
+            for (int j = 0; j < cellArray.length; j++) {
+                System.out.print("|" + cellArray[i][j].getValue() + "|");
+            }
+            System.out.println();
+        }
     }
     
     public int getNumColumns() {
@@ -29,6 +37,10 @@ public class Spreadsheet {
     // temp method
     public String printCellFormula(CellToken cellToken) {
         return cellArray[cellToken.getRow()][cellToken.getColumn()].getFormula();
+    }
+    
+    public int getCellValue(CellToken cellToken) {
+    	return cellArray[cellToken.getRow()][cellToken.getColumn()].getValue();
     }
     
     public void printAllFormulas() {
@@ -343,8 +355,30 @@ public class Spreadsheet {
     }
     
     void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
-    	cellArray[cellToken.getRow()][cellToken.getColumn()].setFormula(s);
-    	cellArray[cellToken.getRow()][cellToken.getColumn()].Evaluate(this);
-    	System.out.println("Value of cell: " + cellArray[cellToken.getRow()][cellToken.getColumn()].getValue());
+    	Cell c = cellArray[cellToken.getRow()][cellToken.getColumn()];
+    	c.setFormula(s);
+    	// goes through the cells that it is dependent on and reference itself on them
+    	if (c.getDependents() != null) {
+    		for (CellToken ct: c.getDependents()) {
+    			cellArray[ct.getRow()][ct.getColumn()].addReferences(c);
+    		}
+    	}
+    	
+    	// copies all the indegrees to past into the topological sort
+    	int[][] indegrees = new int[cellArray.length][cellArray.length];
+    	for (int row = 0; row < cellArray.length; row++) {
+    		for (int col = 0; col < cellArray.length; col++) {
+        		indegrees[row][col] = cellArray[row][col].getIndegrees();
+        	}
+    	}
+    	
+    	// sorts the cells and puts it in a stack to evaluate the cells in correct order
+    	Stack<Cell> ts = TopologicalSort.sort(cellArray, indegrees);
+    	while (!ts.isEmpty()) {
+    		ts.peek().Evaluate(this);
+    		for (Cell r : ts.pop().getReferences()) {
+    			r.Evaluate(this);
+    		}
+    	}
     }
 }

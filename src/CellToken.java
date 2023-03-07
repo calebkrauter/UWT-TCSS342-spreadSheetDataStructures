@@ -1,3 +1,7 @@
+package src;
+
+import java.util.Objects;
+
 public class CellToken extends Token {
     private int column; // column A = 0, B = 1, etc.
     private int row;
@@ -25,5 +29,18 @@ public class CellToken extends Token {
     	String returnString = Character.toString('A' + column);
         returnString += row;
         return returnString;
+    }
+    
+    @Override
+    public int hashCode() {
+    	return Objects.hash(getValue());
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+    	if (o.getClass() != CellToken.class)
+    		return false;
+    	CellToken ct = (CellToken) o;
+    	return row == ct.row && column == ct.column;
     }
 }

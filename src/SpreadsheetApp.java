@@ -4,8 +4,9 @@
  *
  * @author Donald Chinn
  */
+package src;
 
-import view.DisplayGui;
+import src.view.DisplayGui;
 
 import java.io.BufferedReader;
 import java.io.IOException;

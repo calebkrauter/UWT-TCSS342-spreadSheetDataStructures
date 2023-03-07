@@ -1,3 +1,7 @@
+package src;
+
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class Cell {
@@ -7,11 +11,14 @@ public class Cell {
     private int value;
     // the expression tree below represents the formula
     private ExpressionTree expressionTree;
+    // other cells that "points" to this cell
+    private Set<Cell> references;
     
     public Cell() {
         formula = "";
         value = 0;
         expressionTree = new ExpressionTree();
+        references = new HashSet<Cell>();
     }
     
     public void Evaluate (Spreadsheet spreadsheet) {
@@ -26,9 +33,32 @@ public class Cell {
     	return value;
     }
     
+    public void addReferences(Cell c) {
+    	references.add(c);
+    }
+    
+    public void removeReferences(Cell c) {
+    	references.remove(c);
+    }
+    
+    public Cell[] getReferences() {
+    	return references.toArray(new Cell[0]);
+    }
+    
+    public int getIndegrees() {
+    	return references.size();
+    }
+    // gets the cells that this cell points to
+    public CellToken[] getDependents() {
+    	return expressionTree.getDependents().toArray(new CellToken[0]);
+    }
+    
     public void setFormula(String s) {
     	expressionTree.BuildExpressionTree(getFormula(s));
-    	formula = expressionTree.printTree();
+    	formula = s;
+    	if (s.length() == 0)
+    		value = 0;
+    	references.clear();
     	System.out.println("Setted Formula: " + formula);
     }
     
