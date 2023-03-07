@@ -29,8 +29,9 @@ public class ExpressionTree {
     }
     
     private int evalTree(Spreadsheet spreadsheet, ExpressionTreeNode n) {
-    	if (n == null)
+    	if (n == null) {
     		return 0;
+    	}
     	
     	// returns value of the leafs to be operated on
     	if (n.left == null && n.right == null) {

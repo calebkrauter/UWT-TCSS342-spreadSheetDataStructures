@@ -58,8 +58,6 @@ public class Cell {
     	formula = s;
     	if (s.length() == 0)
     		value = 0;
-    	
-    	System.out.println("Setted Formula: " + formula);
     }
     
     /**
