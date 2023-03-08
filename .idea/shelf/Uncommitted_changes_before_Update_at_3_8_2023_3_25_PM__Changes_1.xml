@@ -1,0 +1,59 @@
+<changelist name="Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1" date="1678317974874" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 3/8/2023 3:25 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/ExpressionTreeNode.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/ExpressionTreeNode.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/ExpressionTreeNode.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/view/CellsPanel$1.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/view/CellsPanel$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellsPanel$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/Token.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/Token.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Token.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/CellToken.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/CellToken.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellToken.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/ExpressionTree.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/ExpressionTree.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/ExpressionTree.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/OperatorToken.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/OperatorToken.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/OperatorToken.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/LiteralToken.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/LiteralToken.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/LiteralToken.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/Cell.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/Cell.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Cell.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/TopologicalSort.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/TopologicalSort.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/TopologicalSort.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/view/CellsPanel.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/view/CellsPanel.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellsPanel.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/spreadSheetDataStructures/model/Spreadsheet.class" />
+    <option name="AFTER_PATH" value="out/production/spreadSheetDataStructures/model/Spreadsheet.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Spreadsheet.class" />
+  </binary>
+</changelist>
