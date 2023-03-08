@@ -11,17 +11,7 @@ public class ExpressionTree {
     // Constructor with no root
     public ExpressionTree() {
         root = null;
-        dependentCells = new HashSet<CellToken>();
-    }
-    
-    public void makeEmpty(){
-        root = null;
-        dependentCells.clear();
-    }
-    public String printTree() {
-    	StringBuilder sb = new StringBuilder(128);
-        print(root, sb);
-        return sb.toString();
+        dependentCells = new HashSet<>();
     }
     
     public int evaluate(Spreadsheet spreadsheet) {
@@ -35,9 +25,9 @@ public class ExpressionTree {
     	
     	// returns value of the leafs to be operated on
     	if (n.left == null && n.right == null) {
-    		if (n.getToken() instanceof CellToken) {
+    		if (n.getToken().getType().equals("CELL")) {
     			return spreadsheet.getCellValue((CellToken) n.getToken());
-            } else if (n.getToken() instanceof LiteralToken) {
+            } else if (n.getToken().getType().equals("LITERAL")) {
             	return ((LiteralToken) n.getToken()).getValue();
             }
     	}
@@ -57,6 +47,11 @@ public class ExpressionTree {
     	return leftEval / rightEval;
     }
     
+    public void BuildExpressionTree (Stack s) {
+        dependentCells.clear();
+        root = GetExpressionTree(s);
+    }
+    
     private ExpressionTreeNode GetExpressionTree(Stack s) {
         ExpressionTreeNode returnTree;
         Token token;
@@ -66,16 +61,16 @@ public class ExpressionTree {
         }
         
         token = (Token) s.pop();  // need to handle stack underflow
-        if ((token instanceof LiteralToken) ||
-                (token instanceof CellToken) ) {
+        if ((token.getType().equals("LITERAL")) ||
+                (token.getType().equals("CELL"))) {
             // Literals and Cells are leaves in the expression tree
         	returnTree = new ExpressionTreeNode(token, null, null);
         	// adds dependent cells
-        	if (token instanceof CellToken) {
+        	if (token.getType().equals("CELL")) {
         		dependentCells.add((CellToken) token);
         	}
             return returnTree;
-        } else if (token instanceof OperatorToken) {
+        } else if (token.getType().equals("OPERATOR")) {
             // Continue finding tokens that will form the
             // right subtree and left subtree.
             ExpressionTreeNode rightSubtree = GetExpressionTree (s);
@@ -90,32 +85,5 @@ public class ExpressionTree {
     
     public Set<CellToken> getDependents() {
     	return dependentCells;
-    }
-    
-    public void BuildExpressionTree (Stack s) {
-    	dependentCells.clear();
-        root = GetExpressionTree(s);
-    }
-    
-    private void print(ExpressionTreeNode n, StringBuilder sb) {
-    	if (n == null)
-    		return;
-    	if (n.getToken() instanceof OperatorToken)
-    		sb.append('(');
-    	print(n.left, sb);
-    	if (n.getToken() instanceof OperatorToken) {
-            sb.append(" " + ((OperatorToken) n.getToken()).getOperatorToken() + " ");
-        } else if (n.getToken() instanceof CellToken) {
-        	sb.append(((CellToken) n.getToken()).getValue());
-        } else if (n.getToken() instanceof LiteralToken) {
-        	sb.append(((LiteralToken) n.getToken()).getValue());
-        } else {
-            // This case should NEVER happen
-            System.out.println("Error in printExpressionTreeNode.");
-            System.exit(0);
-        }
-    	print(n.right, sb);
-    	if (n.getToken() instanceof OperatorToken)
-    		sb.append(')');
     }
 }

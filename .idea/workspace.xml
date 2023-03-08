@@ -4,37 +4,121 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf626ce1-6b89-4247-a8f7-b4f3d294d45d" name="Changes" comment="" />
+    <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/interaction.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PropertyChangeEnabledSpreadSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/spreadSheetDataStructures.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/spreadSheetDataStructures.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/CellToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/CellToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/ExpressionTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/ExpressionTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/LiteralToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/LiteralToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/OperatorToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/OperatorToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Spreadsheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Spreadsheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/SpreadsheetApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Token.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/TopologicalSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/TopologicalSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/DisplayGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/DisplayGui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelColumns.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelColumns.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelRows.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelRows.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spreadSheetDataStructures.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spreadSheetDataStructures.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CellToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CellToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExpressionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ExpressionTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LiteralToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiteralToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperatorToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spreadsheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spreadsheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SpreadsheetApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CellsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CellsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DisplayGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LabelColumns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LabelColumns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LabelRows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LabelRows.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2MihipHtCgqHvEFqnayN7EbhZYB" />
+  <component name="ProjectId" id="2MkI5Csc03J8REoAgn4UWmlihlS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/calebkrauter/spreadSheetDataStructures&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Coding/Main/TCSS 305/acomfort-assignment5/src/model/PropertyChangeEnabledCraps.java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "configurable.group.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Coding\Main\spreadSheetDataStructures" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunSpreadsheet" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="src.view.Main" />
+      <module name="spreadSheetDataStructures" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cf626ce1-6b89-4247-a8f7-b4f3d294d45d" name="Changes" comment="" />
-      <created>1678256440767</created>
+      <changelist id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="" />
+      <created>1678304977631</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678256440767</updated>
+      <updated>1678304977631</updated>
+      <workItem from="1678304979004" duration="6369000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

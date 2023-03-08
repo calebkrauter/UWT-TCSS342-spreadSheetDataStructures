@@ -196,16 +196,14 @@ public class Cell {
      * This algorithm follows the algorithm described in Weiss, pages 105-108.
      */
     Stack getFormula(String formula) {
-        Stack returnStack = new Stack();  // stack of Tokens (representing a postfix expression)
+        Stack<Token> returnStack = new Stack<>();  // stack of Tokens (representing a postfix expression)
         boolean error = false;
         char ch = ' ';
         
         int literalValue = 0;
-        int column = 0;
-        int row = 0;
         
         int index = 0;  // index into formula
-        Stack operatorStack = new Stack();  // stack of operators
+        Stack<Token> operatorStack = new Stack<>();  // stack of operators
         
         while (index < formula.length()) {
             // get rid of leading whitespace characters
@@ -313,7 +311,7 @@ public class Cell {
         
         if (error) {
             // a parse error; return the empty stack
-            //returnStack.makeEmpty();
+            returnStack.clear();
         }
         
         return returnStack;
@@ -364,6 +362,6 @@ public class Cell {
                 System.exit(0);
                 break;
         }
-        return 0;
+        return -1;
     }
 }

@@ -12,17 +12,15 @@ public class DisplayGui extends JFrame {
     
     public DisplayGui () {
         gridLayout = new GridLayout();
-        initalizePanels();
-        loadGUi();
+        initializePanels();
+        loadGUI();
     }
     
-    private void initalizePanels() {
+    private void initializePanels() {
         spreadSheetPanel = new SpreadSheetPanel();
     }
     
-    public void loadGUi() {
-
-// TODO - pass in any necessary panel(s)
+    public void loadGUI() {
         window = new JFrame();
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setLocation(SCREEN_SIZE.width / 2 - window.getWidth() / 2,

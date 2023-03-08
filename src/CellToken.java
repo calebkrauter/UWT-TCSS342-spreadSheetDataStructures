@@ -7,6 +7,7 @@ public class CellToken extends Token {
     private int row;
     
     public CellToken() {
+        super("CELL");
     }
     
     public void setColumn(int theColumn) {

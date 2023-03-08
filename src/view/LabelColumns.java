@@ -30,6 +30,7 @@ public class LabelColumns extends JPanel {
     }
     
     private void renderVisuals(JLabel currentLabel) {
+        currentLabel.setFont(new Font("Verdana", Font.BOLD, 18));
         currentLabel.setBackground(Color.GREEN);
         currentLabel.setOpaque(true);
         currentLabel.setBorder(BorderFactory.createLineBorder(Color.black));

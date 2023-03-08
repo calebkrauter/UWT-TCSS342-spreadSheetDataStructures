@@ -10,6 +10,7 @@ public class OperatorToken extends Token {
     private char operatorToken;
     
     public OperatorToken(char operatorToken) {
+        super("OPERATOR");
         this.operatorToken = operatorToken;
     }
     

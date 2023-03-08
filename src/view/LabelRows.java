@@ -19,18 +19,18 @@ public class LabelRows extends JPanel {
 
     private void produceDataBox(int amount) {
         for(int i = 0; i < amount; i++) {
-            JLabel currentLabel = new JLabel(String.valueOf(i + 1), SwingConstants.CENTER);
+            JLabel currentLabel = new JLabel(String.valueOf(i), SwingConstants.CENTER);
             renderVisuals(currentLabel);
             add(currentLabel);
-            currentLabel.setPreferredSize(cellSize);
-            // Save the current cellField to an array to be accessed later.
             arrayOfLabels[i] = currentLabel;
         }
     }
 
     private void renderVisuals(JLabel currentLabel) {
         currentLabel.setBackground(Color.GREEN);
+        currentLabel.setFont(new Font("Verdana", Font.BOLD, 18));
         currentLabel.setOpaque(true);
         currentLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+        currentLabel.setPreferredSize(cellSize);
     }
 }
