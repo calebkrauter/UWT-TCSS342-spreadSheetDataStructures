@@ -62,7 +62,6 @@ public class CellsPanel extends JPanel {
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
                 cellArr[i][j] = new JTextField(spreadsheet.getCell(i, j).getValue());
-                cellArr[i][j].setPreferredSize(cellSize);
                 cellArr[i][j].setEditable(true);
                 this.add(cellArr[i][j]);
             }

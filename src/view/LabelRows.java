@@ -20,9 +20,9 @@ public class LabelRows extends JPanel {
     private void produceDataBox(int amount) {
         for(int i = 0; i < amount; i++) {
             JLabel currentLabel = new JLabel(String.valueOf(i + 1), SwingConstants.CENTER);
-            currentLabel.setPreferredSize(cellSize);
             renderVisuals(currentLabel);
             add(currentLabel);
+            currentLabel.setPreferredSize(cellSize);
             // Save the current cellField to an array to be accessed later.
             arrayOfLabels[i] = currentLabel;
         }

@@ -23,7 +23,6 @@ public class LabelColumns extends JPanel {
         
         for (int i = 0; i < amount; i++) {
             currentLabel = new JLabel(getColumnLabel(i), SwingConstants.CENTER);
-            currentLabel.setPreferredSize(cellSize);
             renderVisuals(currentLabel);
             add(currentLabel);
             arrayOfLabels[i] = currentLabel;
