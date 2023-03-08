@@ -33,7 +33,7 @@ public class LabelColumns extends JPanel {
         currentLabel.setBackground(Color.GREEN);
         currentLabel.setOpaque(true);
         currentLabel.setBorder(BorderFactory.createLineBorder(Color.black));
-        currentLabel.setMinimumSize(cellSize);
+        currentLabel.setPreferredSize(cellSize);
     }
     
     public String getColumnLabel(int i) {
