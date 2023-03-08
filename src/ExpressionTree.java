@@ -24,7 +24,7 @@ public class ExpressionTree {
         return sb.toString();
     }
     
-    public int Evaluate(Spreadsheet spreadsheet) {
+    public int evaluate(Spreadsheet spreadsheet) {
     	return evalTree(spreadsheet, root);
     }
     

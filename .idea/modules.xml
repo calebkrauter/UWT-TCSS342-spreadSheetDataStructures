@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/spreadSheetDataStructures.iml" filepath="$PROJECT_DIR$/.idea/spreadSheetDataStructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spreadSheetDataStructures.iml" filepath="$PROJECT_DIR$/spreadSheetDataStructures.iml" />
     </modules>
   </component>
 </project>

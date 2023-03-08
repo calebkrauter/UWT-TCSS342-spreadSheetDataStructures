@@ -1,5 +1,7 @@
 package src;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
@@ -11,6 +13,7 @@ public class Cell {
     private int value;
     // the expression tree below represents the formula
     private ExpressionTree expressionTree;
+    
     // other cells that "points" to this cell
     private Set<Cell> references;
     
@@ -21,8 +24,8 @@ public class Cell {
         references = new HashSet<Cell>();
     }
     
-    public void Evaluate (Spreadsheet spreadsheet) {
-    	value = expressionTree.Evaluate(spreadsheet);
+    public void evaluate(Spreadsheet spreadsheet) {
+    	value = expressionTree.evaluate(spreadsheet);
     }
     
     public String getFormula() {
@@ -32,6 +35,8 @@ public class Cell {
     public int getValue() {
     	return value;
     }
+    
+    public boolean hasFormula() { return formula != ""; }
     
     public void addReferences(Cell c) {
     	references.add(c);
@@ -58,29 +63,6 @@ public class Cell {
     	formula = s;
     	if (s.length() == 0)
     		value = 0;
-    }
-    
-    /**
-     * Return a string associated with a token
-     *
-     * @param expTreeToken an ExpressionTreeToken
-     * @return a String associated with expTreeToken
-     */
-    static String printExpressionTreeToken(Token expTreeToken) {
-        String returnString = "";
-
-        if (expTreeToken instanceof OperatorToken) {
-            returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
-        } else if (expTreeToken instanceof CellToken) {
-            returnString = ((CellToken) expTreeToken).getValue() + " ";
-        } else if (expTreeToken instanceof LiteralToken) {
-            returnString = ((LiteralToken) expTreeToken).getValue() + " ";
-        } else {
-            // This case should NEVER happen
-            System.out.println("Error in printExpressionTreeToken.");
-            System.exit(0);
-        }
-        return returnString;
     }
     
     /**

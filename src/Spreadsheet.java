@@ -1,25 +1,37 @@
 package src;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.Stack;
 
 public class Spreadsheet {
     
     private static final int BAD_CELL = -1;
     
+    private static int rows;
+    
+    private static int cols;
     static private Cell[][] cellArray;
     
-    public Spreadsheet(int size) {
-        cellArray = new Cell[size][size];
-        for (int r = 0; r < size; r++) {
-        	for (int c = 0; c < size; c++) {
+    /** The property change support. */
+    private final PropertyChangeSupport myPcs = new PropertyChangeSupport(Cell.class);
+    
+    public Spreadsheet(int rowSize, int columnSize) {
+        rows = rowSize;
+        cols = columnSize;
+        
+        cellArray = new Cell[rows][cols];
+        for (int r = 0; r < rows; r++) {
+        	for (int c = 0; c < cols; c++) {
         		cellArray[r][c] = new Cell();
         	}
         }
     }
     
     public static void printValues() {
-    	for (int i = 0; i < cellArray.length; i++) {
-            for (int j = 0; j < cellArray.length; j++) {
+    	for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 System.out.print("|" + cellArray[i][j].getValue() + "|");
             }
             System.out.println();
@@ -27,14 +39,17 @@ public class Spreadsheet {
     }
     
     public int getNumColumns() {
-        return cellArray.length;
+        return cols;
     }
     
     public int getNumRows() {
-        return cellArray.length;
+        return rows;
     }
     
-    // temp method
+    public Cell getCell(int row, int column) {
+        return cellArray[row][column];
+    }
+    
     public String printCellFormula(CellToken cellToken) {
         return cellArray[cellToken.getRow()][cellToken.getColumn()].getFormula();
     }
@@ -44,8 +59,8 @@ public class Spreadsheet {
     }
     
     public void printAllFormulas() {
-        for (int i = 0; i < cellArray.length; i++) {
-            for (int j = 0; j < cellArray.length; j++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 System.out.print("|" + cellArray[i][j].getFormula() + "|");
             }
             System.out.println();
@@ -162,199 +177,7 @@ public class Spreadsheet {
         return index;
     }
     
-    /**
-     * getFormula
-     * <p>
-     * Given a string that represents a formula that is an infix
-     * expression, return a stack of Tokens so that the expression,
-     * when read from the bottom of the stack to the top of the stack,
-     * is a postfix expression.
-     * <p>
-     * A formula is defined as a sequence of tokens that represents
-     * a legal infix expression.
-     * <p>
-     * A token can consist of a numeric literal, a cell reference, or an
-     * operator (+, -, *, /).
-     * <p>
-     * Multiplication (*) and division (/) have higher precedence than
-     * addition (+) and subtraction (-).  Among operations within the same
-     * level of precedence, grouping is from left to right.
-     * <p>
-     * This algorithm follows the algorithm described in Weiss, pages 105-108.
-     */
-    Stack getFormula(String formula) {
-        Stack returnStack = new Stack();  // stack of Tokens (representing a postfix expression)
-        boolean error = false;
-        char ch = ' ';
-        
-        int literalValue = 0;
-        int column = 0;
-        int row = 0;
-        
-        int index = 0;  // index into formula
-        Stack operatorStack = new Stack();  // stack of operators
-        
-        while (index < formula.length()) {
-            // get rid of leading whitespace characters
-            while (index < formula.length()) {
-                ch = formula.charAt(index);
-                if (!Character.isWhitespace(ch)) {
-                    break;
-                }
-                index++;
-            }
-            
-            if (index == formula.length()) {
-                error = true;
-                break;
-            }
-            
-            // ASSERT: ch now contains the first character of the next token.
-            if (isOperator(ch)) {
-                // We found an operator token
-                switch (ch) {
-                    case OperatorToken.Plus:
-                    case OperatorToken.Minus:
-                    case OperatorToken.Mult:
-                    case OperatorToken.Div:
-                    case OperatorToken.LeftParen:
-                        // push operatorTokens onto the output stack until
-                        // we reach an operator on the operator stack that has
-                        // lower priority than the current one.
-                        OperatorToken stackOperator;
-                        while (!operatorStack.isEmpty()) {
-                            stackOperator = (OperatorToken) operatorStack.peek();
-                            if ((stackOperator.priority() >= operatorPriority(ch)) &&
-                                    (stackOperator.getOperatorToken() != OperatorToken.LeftParen)) {
-                                
-                                // output the operator to the return stack
-                                operatorStack.pop();
-                                returnStack.push(stackOperator);
-                            } else {
-                                break;
-                            }
-                        }
-                        break;
-                    
-                    default:
-                        // This case should NEVER happen
-                        System.out.println("Error in getFormula.");
-                        System.exit(0);
-                        break;
-                }
-                // push the operator on the operator stack
-                operatorStack.push(new OperatorToken(ch));
-                
-                index++;
-                
-            } else if (ch == ')') {    // maybe define OperatorToken.RightParen ?
-                OperatorToken stackOperator;
-                stackOperator = (OperatorToken) operatorStack.pop();
-                // This code does not handle operatorStack underflow.
-                while (stackOperator.getOperatorToken() != OperatorToken.LeftParen) {
-                    // pop operators off the stack until a LeftParen appears and
-                    // place the operators on the output stack
-                    returnStack.push(stackOperator);
-                    stackOperator = (OperatorToken) operatorStack.pop();
-                }
-                
-                index++;
-            } else if (Character.isDigit(ch)) {
-                // We found a literal token
-                literalValue = ch - '0';
-                index++;
-                while (index < formula.length()) {
-                    ch = formula.charAt(index);
-                    if (Character.isDigit(ch)) {
-                        literalValue = (literalValue * 10) + (ch - '0');
-                        index++;
-                    } else {
-                        break;
-                    }
-                }
-                // place the literal on the output stack
-                returnStack.push(new LiteralToken(literalValue));
-                
-            } else if (Character.isUpperCase(ch)) {
-                // We found a cell reference token
-                CellToken cellToken = new CellToken();
-                index = getCellToken(formula, index, cellToken);
-                if (cellToken.getRow() == BAD_CELL) {
-                    error = true;
-                    break;
-                } else {
-                    // place the cell reference on the output stack
-                    returnStack.push(cellToken);
-                }
-                
-            } else {
-                error = true;
-                break;
-            }
-        }
-        
-        // pop all remaining operators off the operator stack
-        while (!operatorStack.isEmpty()) {
-            returnStack.push(operatorStack.pop());
-        }
-        
-        if (error) {
-            // a parse error; return the empty stack
-            //returnStack.makeEmpty();
-        }
-        
-        return returnStack;
-    }
-    /**
-     * Return true if the char ch is an operator of a formula.
-     * Current operators are: +, -, *, /, (.
-     *
-     * @param ch a char
-     * @return whether ch is an operator
-     */
-    boolean isOperator(char ch) {
-        return ((ch == OperatorToken.Plus) ||
-                (ch == OperatorToken.Minus) ||
-                (ch == OperatorToken.Mult) ||
-                (ch == OperatorToken.Div) ||
-                (ch == OperatorToken.LeftParen));
-    }
-    
-    /**
-     * Given an operator, return its priority.
-     * <p>
-     * priorities:
-     * +, - : 0
-     * *, / : 1
-     * (    : 2
-     *
-     * @param ch a char
-     * @return the priority of the operator
-     */
-    int operatorPriority(char ch) {
-        if (!isOperator(ch)) {
-            // This case should NEVER happen
-            System.out.println("Error in operatorPriority.");
-            System.exit(0);
-        }
-        switch (ch) {
-            case OperatorToken.Plus, OperatorToken.Minus:
-                return 0;
-            case OperatorToken.Mult, OperatorToken.Div:
-                return 1;
-            case OperatorToken.LeftParen:
-                return 2;
-            
-            default:
-                // This case should NEVER happen
-                System.out.println("Error in operatorPriority.");
-                System.exit(0);
-                break;
-        }
-        return 0;
-    }
-    
-    void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
+    public void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
     	Cell c = cellArray[cellToken.getRow()][cellToken.getColumn()];
     	// dereferences itself from dependents first
     	// useful for when the user changes the formula
@@ -373,10 +196,11 @@ public class Spreadsheet {
     	}
     	
     	// copies all the indegrees to pass into the topological sort
-    	int[][] indegrees = new int[cellArray.length][cellArray.length];
-    	for (int row = 0; row < cellArray.length; row++) {
-    		for (int col = 0; col < cellArray.length; col++) {
-        		indegrees[row][col] = cellArray[row][col].getIndegrees();
+    	int[][] indegrees = new int[rows][cols];
+    	for (int row = 0; row < rows; row++) {
+    		for (int col = 0; col < cols; col++) {
+        		if(cellArray[row][col].hasFormula())
+                    indegrees[row][col] = cellArray[row][col].getIndegrees();
         	}
     	}
     	
@@ -386,9 +210,9 @@ public class Spreadsheet {
     		changeCellFormulaAndRecalculate(cellToken, prevFormula);
     	} else {
     		while (!ts.isEmpty()) {
-        		ts.peek().Evaluate(this);
+        		ts.peek().evaluate(this);
         		for (Cell r : ts.pop().getReferences()) {
-        			r.Evaluate(this);
+        			r.evaluate(this);
         		}
         	}
     	}
