@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="Code refactoring and GUI updates">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Cell.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/CellToken.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/ExpressionTree.class" beforeDir="false" />
@@ -41,11 +44,11 @@
       <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/TopologicalSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hw6b-23wi.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/hw6b-23wi.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/CellsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/CellsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/DisplayGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LabelColumns.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelColumns.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/LabelRows.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelRows.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/SpreadSheetPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/DisplayGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/LabelColumns.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelColumns.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,22 +83,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Coding/Main/TCSS 305/acomfort-assignment5/src/model/PropertyChangeEnabledCraps.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Coding/Main/TCSS 305/acomfort-assignment5/src/model/PropertyChangeEnabledCraps.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Coding\Main\spreadSheetDataStructures" />
