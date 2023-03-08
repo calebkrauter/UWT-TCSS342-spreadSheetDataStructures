@@ -1,3 +1,9 @@
+package src;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class Cell {
@@ -8,14 +14,18 @@ public class Cell {
     // the expression tree below represents the formula
     private ExpressionTree expressionTree;
     
+    // other cells that "points" to this cell
+    private Set<Cell> references;
+    
     public Cell() {
         formula = "";
         value = 0;
         expressionTree = new ExpressionTree();
+        references = new HashSet<Cell>();
     }
     
-    public void Evaluate (Spreadsheet spreadsheet) {
-    	value = expressionTree.Evaluate(spreadsheet);
+    public void evaluate(Spreadsheet spreadsheet) {
+    	value = expressionTree.evaluate(spreadsheet);
     }
     
     public String getFormula() {
@@ -26,33 +36,33 @@ public class Cell {
     	return value;
     }
     
-    public void setFormula(String s) {
-    	expressionTree.BuildExpressionTree(getFormula(s));
-    	formula = expressionTree.printTree();
-    	System.out.println("Setted Formula: " + formula);
+    public boolean hasFormula() { return formula != ""; }
+    
+    public void addReferences(Cell c) {
+    	references.add(c);
     }
     
-    /**
-     * Return a string associated with a token
-     *
-     * @param expTreeToken an ExpressionTreeToken
-     * @return a String associated with expTreeToken
-     */
-    static String printExpressionTreeToken(Token expTreeToken) {
-        String returnString = "";
-
-        if (expTreeToken instanceof OperatorToken) {
-            returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
-        } else if (expTreeToken instanceof CellToken) {
-            returnString = ((CellToken) expTreeToken).getValue() + " ";
-        } else if (expTreeToken instanceof LiteralToken) {
-            returnString = ((LiteralToken) expTreeToken).getValue() + " ";
-        } else {
-            // This case should NEVER happen
-            System.out.println("Error in printExpressionTreeToken.");
-            System.exit(0);
-        }
-        return returnString;
+    public void removeReferences(Cell c) {
+    	references.remove(c);
+    }
+    
+    public Cell[] getReferences() {
+    	return references.toArray(new Cell[0]);
+    }
+    
+    public int getIndegrees() {
+    	return references.size();
+    }
+    // gets the cells that this cell points to
+    public CellToken[] getDependents() {
+    	return expressionTree.getDependents().toArray(new CellToken[0]);
+    }
+    
+    public void setFormula(String s) {
+    	expressionTree.BuildExpressionTree(getFormula(s));
+    	formula = s;
+    	if (s.length() == 0)
+    		value = 0;
     }
     
     /**

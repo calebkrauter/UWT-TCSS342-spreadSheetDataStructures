@@ -1,15 +1,22 @@
+package src;
+
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class ExpressionTree {
     private ExpressionTreeNode root;
+    private Set<CellToken> dependentCells;
     
     // Constructor with no root
     public ExpressionTree() {
         root = null;
+        dependentCells = new HashSet<CellToken>();
     }
     
     public void makeEmpty(){
         root = null;
+        dependentCells.clear();
     }
     public String printTree() {
     	StringBuilder sb = new StringBuilder(128);
@@ -17,18 +24,19 @@ public class ExpressionTree {
         return sb.toString();
     }
     
-    public int Evaluate(Spreadsheet spreadsheet) {
+    public int evaluate(Spreadsheet spreadsheet) {
     	return evalTree(spreadsheet, root);
     }
     
     private int evalTree(Spreadsheet spreadsheet, ExpressionTreeNode n) {
-    	if (n == null)
+    	if (n == null) {
     		return 0;
+    	}
     	
     	// returns value of the leafs to be operated on
     	if (n.left == null && n.right == null) {
     		if (n.getToken() instanceof CellToken) {
-    			// not yet implemented
+    			return spreadsheet.getCellValue((CellToken) n.getToken());
             } else if (n.getToken() instanceof LiteralToken) {
             	return ((LiteralToken) n.getToken()).getValue();
             }
@@ -62,6 +70,10 @@ public class ExpressionTree {
                 (token instanceof CellToken) ) {
             // Literals and Cells are leaves in the expression tree
         	returnTree = new ExpressionTreeNode(token, null, null);
+        	// adds dependent cells
+        	if (token instanceof CellToken) {
+        		dependentCells.add((CellToken) token);
+        	}
             return returnTree;
         } else if (token instanceof OperatorToken) {
             // Continue finding tokens that will form the
@@ -76,7 +88,12 @@ public class ExpressionTree {
         return null;
     }
     
+    public Set<CellToken> getDependents() {
+    	return dependentCells;
+    }
+    
     public void BuildExpressionTree (Stack s) {
+    	dependentCells.clear();
         root = GetExpressionTree(s);
     }
     

@@ -4,8 +4,9 @@
  *
  * @author Donald Chinn
  */
+package src;
 
-import view.DisplayGui;
+import src.view.DisplayGui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -100,31 +101,10 @@ public class SpreadsheetApp {
         System.out.println();
     }
 
-    /**
-     * Return a string associated with a token
-     *
-     * @param expTreeToken an ExpressionTreeToken
-     * @return a String associated with expTreeToken
-     */
-    static String printExpressionTreeToken(Token expTreeToken) {
-        String returnString = "";
-
-        if (expTreeToken instanceof OperatorToken) {
-            returnString = ((OperatorToken) expTreeToken).getOperatorToken() + " ";
-        } else if (expTreeToken instanceof CellToken) {
-            returnString = ((CellToken) expTreeToken).getValue() + " ";
-        } else if (expTreeToken instanceof LiteralToken) {
-            returnString = ((LiteralToken) expTreeToken).getValue() + " ";
-        } else {
-            // This case should NEVER happen
-            System.out.println("Error in printExpressionTreeToken.");
-            System.exit(0);
-        }
-        return returnString;
-    }
+    
 
     public static void main(String[] args) throws IOException {
-        Spreadsheet theSpreadsheet = new Spreadsheet(3);
+        Spreadsheet theSpreadsheet = new Spreadsheet(3,3);
 
         // Display the GUI
         DisplayGui startGui = new DisplayGui();

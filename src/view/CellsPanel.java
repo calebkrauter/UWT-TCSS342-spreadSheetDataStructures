@@ -1,60 +1,71 @@
-package view;
+package src.view;
+
+import src.Cell;
+import src.CellToken;
+import src.Spreadsheet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 // TODO - review the overall code and update this code.
 public class CellsPanel extends JPanel {
-
-    private int amount = 9;
-    private int columnAmount = 3;
-    private int rowAmount = 3;
-    JTextField[] arrayOfCells;
+    
+    private int numRows;
+    private int numCols;
+    JTextField[][] cellArr;
     LayoutManager gridLayout;
+    private Dimension cellSize;
+    private Spreadsheet spreadsheet;
 
-    public CellsPanel() {
-        arrayOfCells = new JTextField[amount];
-        gridLayout = new GridLayout(rowAmount, columnAmount, 1, 1);
-        int i = 0;
+    public CellsPanel(Spreadsheet spreadsheet) {
+        this.spreadsheet = spreadsheet;
+        this.numRows = spreadsheet.getNumRows();
+        this.numCols = spreadsheet.getNumColumns();
+        gridLayout = new GridLayout(numRows, numCols, 0, 0);
+        cellArr = new JTextField[numRows][numCols];
+        cellSize = new Dimension(75, 25);
         setLayout(gridLayout);
-        produceDataBox(amount, i);
-        listeners();
+        initializeCellFields();
+        addListeners();
     }
 
-    private void listeners() {
+    private void addListeners() {
         // Look at all the cells and add an action to each.
-        for (int j = 0; j < amount; j++) {
-            final int val = j;
-            arrayOfCells[j].addActionListener(new AbstractAction() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    setInfo(val);
-                }
-            });
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                int finalI = i;
+                int finalJ = j;
+                cellArr[i][j].addActionListener(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        CellToken ct = new CellToken();
+                        ct.setRow(finalI);
+                        ct.setColumn(finalJ);
+                        spreadsheet.changeCellFormulaAndRecalculate(ct, cellArr[finalI][finalJ].getText());
+                        for (int i = 0; i < numRows; i++) {
+                            for (int j = 0; j < numCols; j++) {
+                                if (spreadsheet.getCell(i,j).hasFormula())
+                                    cellArr[i][j].setText(String.valueOf(spreadsheet.getCell(i, j).getValue()));
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 
-    private void setInfo(int j) {
-        // TODO - replace contents with the appropriate setter to update the formula.
-        System.out.println(arrayOfCells[j].getText() + " input from current cell is set.");
-    }
-    public String getInitialValue() {
-        // TODO - replace return statement with the appropriate getter.
-        return "0";
-    }
-
-    private void produceDataBox(int amount, int i) {
-        if (amount == 0) {
-            return;
+    private void initializeCellFields() {
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numCols; j++) {
+                cellArr[i][j] = new JTextField(spreadsheet.getCell(i, j).getValue());
+                cellArr[i][j].setPreferredSize(cellSize);
+                cellArr[i][j].setEditable(true);
+                this.add(cellArr[i][j]);
+            }
         }
-        JTextField currentField = new JTextField(getInitialValue());
-        add(currentField);
-
-        // Save the current cellField to an array to be accessed later.
-        arrayOfCells[i] = currentField;
-        amount--;
-        i++;
-        produceDataBox(amount, i);
     }
-
 }

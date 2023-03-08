@@ -1,3 +1,5 @@
+package src;
+
 public class OperatorToken extends Token {
     public static final char Plus  = '+';
     public static final char Minus = '-';
