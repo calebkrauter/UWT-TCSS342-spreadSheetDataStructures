@@ -40,7 +40,7 @@ public class LabelColumns extends JPanel {
     }
 
     /**
-     * Produces data boxes, in this class data boxes are labels.
+     * Produces data boxes, in this class data boxes are column labels.
      * @param amount
      */
     private void produceDataBox(int amount) {

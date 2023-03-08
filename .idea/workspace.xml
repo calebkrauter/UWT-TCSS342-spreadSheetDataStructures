@@ -5,50 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="Code refactoring and GUI updates">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Cell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/CellToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/ExpressionTree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/ExpressionTreeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/LiteralToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/OperatorToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/PROJECT.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/PropertyChangeEnabledSpreadSheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Spreadsheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/Token.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/TopologicalSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/hw6b-23wi.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/CellsPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/DisplayGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelColumns.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/LabelRows.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/src/view/SpreadSheetPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spreadSheetDataStructures-2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CellToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/CellToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExpressionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ExpressionTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ExpressionTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ExpressionTreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LiteralToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/LiteralToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/OperatorToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PROJECT.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROJECT.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PropertyChangeEnabledSpreadSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PropertyChangeEnabledSpreadSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Spreadsheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Spreadsheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/TopologicalSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hw6b-23wi.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/hw6b-23wi.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CellsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/CellsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/LabelRows.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelRows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/SpreadSheetPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/DisplayGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/LabelColumns.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelColumns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/LabelRows.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/LabelRows.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/SpreadSheetPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
