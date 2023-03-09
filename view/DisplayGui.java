@@ -17,11 +17,6 @@ public class DisplayGui extends JFrame {
     private final Dimension SCREEN_SIZE = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
-     * A window used to display GUI elements.
-     */
-    private JFrame window;
-
-    /**
      * A panel that contains other panels to make up the spreadsheet GUI.
      */
     private SpreadSheetPanel spreadSheetPanel;
@@ -47,7 +42,7 @@ public class DisplayGui extends JFrame {
      * A function that loads the window to hold the GUI elements.
      */
     public void loadGUI() {
-        window = new JFrame();
+        final JFrame window = new JFrame();
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setLocation(SCREEN_SIZE.width / 2 - window.getWidth() / 2,
                 SCREEN_SIZE.height / 2 - window.getHeight() / 2);

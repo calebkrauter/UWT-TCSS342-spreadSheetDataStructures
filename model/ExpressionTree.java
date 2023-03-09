@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.Stack;
 
 /**
- * Converts a post-fix expression stack into a expression tree.
+ * Converts a post-fix expression stack into an expression tree.
  * Have the ability to evaluate itself and print the formula.
  */
 public class ExpressionTree {
@@ -19,7 +19,7 @@ public class ExpressionTree {
     private final Set<CellToken> dependentCells;
     
     /**
-     * Constructs a expression tree. It has 0 height with the root as null.
+     * Constructs an expression tree. It has 0 height with the root as null.
      */
     public ExpressionTree() {
         root = null;
@@ -77,7 +77,7 @@ public class ExpressionTree {
     }
     
     /**
-     * Converts a post-fix expression stack to a expression tree.
+     * Converts a post-fix expression stack to an expression tree.
      * 
      * @param s the expression stack
      */
@@ -100,7 +100,7 @@ public class ExpressionTree {
             return null;
         }
         
-        token = (Token) s.pop();  // need to handle stack underflow
+        token = s.pop();  // need to handle stack underflow
         if ((token.getType().equals("LITERAL")) ||
                 (token.getType().equals("CELL"))) {
             // Literals and Cells are leaves in the expression tree

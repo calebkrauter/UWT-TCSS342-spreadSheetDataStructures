@@ -32,7 +32,7 @@ public class OperatorToken extends Token {
     /**
      * The constant carat.
      */
-    public static final char Carot   = '^';
+    public static final char Carat = '^';
     /**
      * The constant left parentheses.
      */
@@ -71,7 +71,7 @@ public class OperatorToken extends Token {
             case Mult, Div -> {
                 return 1;
             }
-            case Carot -> {
+            case Carat -> {
                 return 2;
             }
             case LeftParen -> {

@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="Validates user inputs for rows/columns">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ExpressionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ExpressionTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/OperatorToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/CellToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/CellToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/ExpressionTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/ExpressionTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/ExpressionTreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/ExpressionTreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/LiteralToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/LiteralToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/OperatorToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/OperatorToken.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Spreadsheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Spreadsheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/Token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/model/TopologicalSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/LabelColumns.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/LabelColumns.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/LabelRows.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/LabelRows.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/SpreadSheetPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/SpreadSheetPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/CellsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/CellsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/DisplayGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +89,7 @@
       <workItem from="1678304979004" duration="8343000" />
       <workItem from="1678318044799" duration="594000" />
       <workItem from="1678320255698" duration="1981000" />
-      <workItem from="1678322791407" duration="369000" />
+      <workItem from="1678322791407" duration="587000" />
     </task>
     <task id="LOCAL-00001" summary="Code refactoring and GUI updates">
       <created>1678311766229</created>
@@ -132,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678322131475</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Validates user inputs for rows/columns">
+      <created>1678323199328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678323199328</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
