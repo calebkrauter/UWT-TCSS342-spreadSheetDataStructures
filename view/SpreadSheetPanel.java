@@ -24,8 +24,8 @@ public class SpreadSheetPanel extends JPanel {
     final Spreadsheet spreadsheet;
 
     public SpreadSheetPanel() {
-        int rows = getRowSize();
-        int columns = getColumnSize();
+        int rows = getInput("rows");
+        int columns = getInput("columns");
 
         setLayout(new BorderLayout());
         spreadsheet = new Spreadsheet(rows, columns);
@@ -40,20 +40,38 @@ public class SpreadSheetPanel extends JPanel {
         add(labelRows, BorderLayout.WEST);
         add(cellsPanel, BorderLayout.CENTER);
     }
-
+    
     /**
-     * A function for getting the value of the amount of rows from the user.
-     * @return
+     * A function for getting the number of columns or rows from the user.
+     * @param dim the dimension
+     * @return column/row number
      */
-    public int getRowSize() {
-        return Integer.parseInt(JOptionPane.showInputDialog(this, "Enter number of rows"));
-    }
-
-    /**
-     * A function for getting the value of the amount of columns from the user.
-     * @return
-     */
-    public int getColumnSize() {
-        return Integer.parseInt(JOptionPane.showInputDialog(this, "Enter number of Columns"));
+    public int getInput(String dim) {
+        boolean isValidInput = false;
+        int size = 0;
+    
+        while(!isValidInput) {
+            final String input = JOptionPane.showInputDialog(this, "Enter number of " + dim);
+            // Validates user input
+            if (input == null) { // If user hits cancel button
+                JOptionPane.showMessageDialog(this,
+                        "Exiting Spreadsheet.");
+                System.exit(0);
+            } else {
+                try {
+                    size = Integer.parseInt(input);
+                    if (size < 1) {
+                        JOptionPane.showMessageDialog(this,
+                                "Invalid value! Number of " + dim + " must be greater than zero.");
+                        continue;
+                    }
+                    isValidInput = true;
+                } catch (final NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this,
+                            "Invalid value! Number of " + dim + " must be a number.");
+                }
+            }
+        }
+        return size;
     }
 }

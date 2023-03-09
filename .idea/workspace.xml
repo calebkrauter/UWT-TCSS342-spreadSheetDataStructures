@@ -4,42 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="Code refactoring and GUI updates">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/Cell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/CellToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/CellsPanel$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/CellsPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/ExpressionTree.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/ExpressionTreeNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/LiteralToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/OperatorToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/Spreadsheet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/Token.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/TopologicalSort.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Cell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellsPanel$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/CellsPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/ExpressionTree.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/ExpressionTreeNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/LiteralToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/OperatorToken.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Spreadsheet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/Token.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/TopologicalSort.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_8_2023_3_25_PM__Changes_1.xml" afterDir="false" />
+    <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="More Javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/CellToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/CellToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/LiteralToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/LiteralToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/OperatorToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Spreadsheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Spreadsheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/TopologicalSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/SpreadSheetPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/SpreadSheetPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Coding/Main/TCSS 305/acomfort-assignment5/src/model/PropertyChangeEnabledCraps.java",
+    "last_opened_file_path": "D:/Coding/Main/TCSS 305/acomfort-assignment5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -118,7 +85,8 @@
       <option name="presentableId" value="Default" />
       <updated>1678304977631</updated>
       <workItem from="1678304979004" duration="8343000" />
-      <workItem from="1678318044799" duration="457000" />
+      <workItem from="1678318044799" duration="594000" />
+      <workItem from="1678320255698" duration="1823000" />
     </task>
     <task id="LOCAL-00001" summary="Code refactoring and GUI updates">
       <created>1678311766229</created>
@@ -127,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678311766229</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="More Javadoc">
+      <created>1678318549398</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678318549398</updated>
+    </task>
+    <task id="LOCAL-00003" summary="More Javadoc">
+      <created>1678318576382</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678318576382</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Code refactoring and GUI updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring and GUI updates" />
+    <MESSAGE value="More Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="More Javadoc" />
   </component>
 </project>
