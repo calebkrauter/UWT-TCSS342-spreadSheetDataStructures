@@ -24,7 +24,7 @@ public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
     private static int cols;
 	
 	/** The array of cells representing this spreadsheet. */
-    static private Cell[][] cellArray;
+    private static Cell[][] cellArray;
 	
 	/** The property change support. */
 	private final PropertyChangeSupport myPcs = new PropertyChangeSupport(Spreadsheet.class);

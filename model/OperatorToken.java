@@ -29,6 +29,10 @@ public class OperatorToken extends Token {
      */
     public static final char Div   = '/';
     /**
+     * The constant division.
+     */
+    public static final char Carot   = '^';
+    /**
      * The constant left parentheses.
      */
     public static final char LeftParen  = '(';
@@ -66,8 +70,11 @@ public class OperatorToken extends Token {
             case Mult, Div -> {
                 return 1;
             }
-            case LeftParen -> {
+            case Carot -> {
                 return 2;
+            }
+            case LeftParen -> {
+                return 3;
             }
             default -> {
                 // This case should NEVER happen
@@ -84,6 +91,6 @@ public class OperatorToken extends Token {
      * @return the operator token
      */
     public char getOperatorToken() {
-        return this.operatorToken;
+        return operatorToken;
     }
 }

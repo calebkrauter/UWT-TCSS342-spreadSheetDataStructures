@@ -293,7 +293,7 @@ public class Cell {
             if (isOperator(ch)) {
                 // We found an operator token
                 switch (ch) {
-                    case OperatorToken.Plus, OperatorToken.Minus, OperatorToken.Mult, OperatorToken.Div, OperatorToken.LeftParen -> {
+                    case OperatorToken.Plus, OperatorToken.Minus, OperatorToken.Mult, OperatorToken.Div, OperatorToken.Carot, OperatorToken.LeftParen -> {
                         // push operatorTokens onto the output stack until
                         // we reach an operator on the operator stack that has
                         // lower priority than the current one.
@@ -393,6 +393,7 @@ public class Cell {
                 (ch == OperatorToken.Minus) ||
                 (ch == OperatorToken.Mult) ||
                 (ch == OperatorToken.Div) ||
+                (ch == OperatorToken.Carot) ||
                 (ch == OperatorToken.LeftParen));
     }
     
@@ -420,8 +421,11 @@ public class Cell {
             case OperatorToken.Mult, OperatorToken.Div -> {
                 return 1;
             }
-            case OperatorToken.LeftParen -> {
+            case OperatorToken.Carot -> {
                 return 2;
+            }
+            case OperatorToken.LeftParen -> {
+                return 3;
             }
             default -> {
                 // This case should NEVER happen

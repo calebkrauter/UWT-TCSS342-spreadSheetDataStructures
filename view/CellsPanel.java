@@ -44,7 +44,7 @@ public class CellsPanel extends JPanel implements PropertyChangeListener {
     /**
      * INTERACTION_SOUND a string that represents the path to an audio file
      */
-    private static final String INTERACTION_SOUND = "interaction.wav";
+    private static final String INTERACTION_SOUND = "src/interaction.wav";
     
     /**
      * Reference to the spreadsheet.

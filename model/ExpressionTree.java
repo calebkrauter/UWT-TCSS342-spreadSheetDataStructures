@@ -71,6 +71,8 @@ public class ExpressionTree {
     		return leftEval - rightEval;
     	if (op == '*')
     		return leftEval * rightEval;
+    	if (op == '^')
+    		return (int) Math.pow(leftEval, rightEval);
     	return leftEval / rightEval;
     }
     
