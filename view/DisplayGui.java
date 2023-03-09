@@ -3,11 +3,8 @@
  */
 package view;
 
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Displays the window that has a scrollable panel for panels to be added too.
@@ -25,27 +22,12 @@ public class DisplayGui extends JFrame {
     private SpreadSheetPanel spreadSheetPanel;
 
     /**
-     * MUSIC a string that represents the path to audio
-     */
-    private static final String MUSIC = "music.wav";
-
-    /**
      * A constructor for DisplayGui which initializes
      * the panels and loads the GUI.
      */
     public DisplayGui () {
         initializePanels();
         loadGUI();
-
-        try {
-            playMusic();
-        } catch (LineUnavailableException e) {
-            audioError();
-        } catch (IOException e) {
-            audioError();
-        } catch (UnsupportedAudioFileException e) {
-            audioError();
-        }
     }
 
     /**
@@ -71,25 +53,5 @@ public class DisplayGui extends JFrame {
         window.setVisible(true);
         
     }
-
-    /**
-     * Plays music.
-     * @throws LineUnavailableException
-     * @throws IOException
-     * @throws UnsupportedAudioFileException
-     */
-    private void playMusic() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File(MUSIC));
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
-        clip.start();
-    }
-
-    /**
-     * JOptionPane for audio error.
-     */
-    private void audioError() {
-        JOptionPane.showMessageDialog(new JFrame(), "Audio Error. Program Shutting Down.");
-        System.exit(0);
-    }
+    
 }
