@@ -1,5 +1,6 @@
 /**
  * @author Andy Comfort
+ * @author Bairu Li
  */
 package model;
 
@@ -29,7 +30,7 @@ public class OperatorToken extends Token {
      */
     public static final char Div   = '/';
     /**
-     * The constant division.
+     * The constant carat.
      */
     public static final char Carot   = '^';
     /**
