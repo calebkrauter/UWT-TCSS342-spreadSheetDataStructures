@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf866e53-f16c-44f7-9cb4-10e8419cdfd9" name="Changes" comment="Validates user inputs for rows/columns">
-      <change beforePath="$PROJECT_DIR$/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ExpressionTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ExpressionTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/OperatorToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/OperatorToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/DisplayGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/spreadSheetDataStructures/view/DisplayGui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/DisplayGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/DisplayGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
