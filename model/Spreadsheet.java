@@ -1,21 +1,41 @@
+/**
+ * @author Bairu Li
+ * @author Andy Comfort
+ */
 package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
-@SuppressWarnings("SpellCheckingInspection")
+/**
+ * Represents a spreadsheet of interactive cells
+ * that has the ability to represent basic mathematical
+ * formulas.
+ */
 public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
-    
+	
+	/** The number of rows in this spreadsheet. */
     private static int rows;
-    
+	
+	/** The number of columns in this spreadsheet. */
     private static int cols;
-    static private Cell[][] cellArray;
+	
+	/** The array of cells representing this spreadsheet. */
+    private static Cell[][] cellArray;
 	
 	/** The property change support. */
 	private final PropertyChangeSupport myPcs = new PropertyChangeSupport(Spreadsheet.class);
-    
-    public Spreadsheet(int rowSize, int columnSize) {
+	
+	/**
+	 * Instantiates a new Spreadsheet.
+	 *
+	 * @param rowSize    the row size
+	 * @param columnSize the column size
+	 */
+	public Spreadsheet(int rowSize, int columnSize) {
         rows = rowSize;
         cols = columnSize;
         
@@ -26,24 +46,53 @@ public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
         	}
         }
     }
-    
-    public int getNumColumns() {
+	
+	/**
+	 * Gets the number of columns.
+	 *
+	 * @return the number of columns
+	 */
+	public int getNumColumns() {
         return cols;
     }
-    
-    public int getNumRows() {
+	
+	/**
+	 * Gets the number of rows.
+	 *
+	 * @return the number of rows
+	 */
+	public int getNumRows() {
         return rows;
     }
-    
-    public Cell getCell(int row, int column) {
+	
+	/**
+	 * Gets a cell based on row and column.
+	 *
+	 * @param row    the row of the cell
+	 * @param column the column of the cell
+	 * @return the cell
+	 */
+	public Cell getCell(int row, int column) {
         return cellArray[row][column];
     }
-    
-    public int getCellValue(CellToken cellToken) {
+	
+	/**
+	 * Gets a cell value.
+	 *
+	 * @param cellToken the cell token
+	 * @return the cell value
+	 */
+	public int getCellValue(CellToken cellToken) {
     	return cellArray[cellToken.getRow()][cellToken.getColumn()].getValue();
     }
-    
-    public void changeCellFormulaAndRecalculate(CellToken cellToken, String s) {
+	
+	/**
+	 * Changes a cell formula and recalculates the spreadsheet.
+	 *
+	 * @param cellToken  the cell token
+	 * @param newFormula the newFormula
+	 */
+	public void changeCellFormulaAndRecalculate(CellToken cellToken, String newFormula) {
     	Cell c = cellArray[cellToken.getRow()][cellToken.getColumn()];
     	// dereferences itself from dependents first
     	// useful for when the user changes the formula
@@ -52,8 +101,9 @@ public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
     			cellArray[ct.getRow()][ct.getColumn()].removeReferences(c);
     		}
     	}
+		// saves previous formula in case of a cycle
     	String prevFormula = c.getFormula();
-    	c.setFormula(s);
+    	c.setFormula(newFormula);
     	// goes through the cells that it is dependent on and reference itself on them
     	if (c.getDependents() != null) {
     		for (CellToken ct: c.getDependents()) {
@@ -71,7 +121,7 @@ public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
     	}
     	
     	// sorts the cells and puts it in a stack to evaluate the cells in correct order
-    	Stack<Cell> ts = TopologicalSort.sort(cellArray, indegrees);
+    	Stack<Cell> ts = topologicalSort(indegrees);
     	if (ts == null) { // cycle found
 			changeCellFormulaAndRecalculate(cellToken, prevFormula);
 			myPcs.firePropertyChange(PROPERTY_CYCLE, 0, cellToken);
@@ -84,6 +134,60 @@ public class Spreadsheet implements PropertyChangeEnabledSpreadSheet {
         	}
     	}
     }
+	
+	/**
+	 * Iterates through the cell array and returns a stack
+	 * where each cell appears after all cells it points to.
+	 *
+	 * @param theIndegrees the indegrees of each cell
+	 * @return the stack of cells in topological order
+	 */
+	public static Stack<Cell> topologicalSort(final int[][] theIndegrees) {
+		Stack<Cell> s = new Stack<>();
+		Queue<Integer> q = new LinkedList<>();
+		int len = cellArray.length;
+		
+		// Add cells with 0 indegrees to the queue
+		for (int i = 0; i < len; i++) {
+			for (int j = 0; j < cellArray[i].length; j++) {
+				if (theIndegrees[i][j] == 0) {
+					q.add(i * len + j);
+				}
+			}
+		}
+		
+		while (!q.isEmpty()) {
+			int dq = q.poll();
+			Cell c = cellArray[dq / len][dq % len];
+			
+			// If the cell has no dependents, skip to the next iteration
+			if (c.getDependents() == null) {
+				continue;
+			}
+			
+			// Decrement the indegrees of the cell's dependents
+			for (final CellToken dependents : c.getDependents()) {
+				int row = dependents.getRow();
+				int col = dependents.getColumn();
+				
+				if (theIndegrees[row][col] != -1) {
+					theIndegrees[row][col]--;
+					if (theIndegrees[row][col] == 0) {
+						q.add(row * len + col);
+					}
+				}
+			}
+			
+			// Add the processed cell to the output stack
+			s.add(c);
+		}
+		
+		if (s.size() != len * cellArray[0].length) {
+			return null;
+		}
+		
+		return s;
+	}
 	
 	/**
 	 * Adds a property change listener.

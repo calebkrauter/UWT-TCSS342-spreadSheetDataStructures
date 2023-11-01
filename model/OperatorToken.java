@@ -1,20 +1,59 @@
+/**
+ * @author Andy Comfort
+ * @author Bairu Li
+ */
 package model;
 
+/**
+ * Represents a token that contains a
+ * mathematical operator.
+ */
 public class OperatorToken extends Token {
+    
+    /**
+     * The constant plus.
+     */
     public static final char Plus  = '+';
+    
+    /**
+     * The constant minus.
+     */
     public static final char Minus = '-';
+    
+    /**
+     * The constant multiplication.
+     */
     public static final char Mult  = '*';
+    
+    /**
+     * The constant division.
+     */
     public static final char Div   = '/';
+    /**
+     * The constant carat.
+     */
+    public static final char Carat = '^';
+    /**
+     * The constant left parentheses.
+     */
     public static final char LeftParen  = '(';
     
+    /**
+     * The operator this token represents.
+     */
     private final char operatorToken;
     
+    /**
+     * Instantiates a new Operator token.
+     *
+     * @param operatorToken the operator token
+     */
     public OperatorToken(char operatorToken) {
         super("OPERATOR");
         this.operatorToken = operatorToken;
     }
     
-    /*
+    /**
      * Return the priority of this OperatorToken.
      *
      * priorities:
@@ -32,8 +71,11 @@ public class OperatorToken extends Token {
             case Mult, Div -> {
                 return 1;
             }
-            case LeftParen -> {
+            case Carat -> {
                 return 2;
+            }
+            case LeftParen -> {
+                return 3;
             }
             default -> {
                 // This case should NEVER happen
@@ -44,7 +86,12 @@ public class OperatorToken extends Token {
         return -1;
     }
     
+    /**
+     * Gets operator token.
+     *
+     * @return the operator token
+     */
     public char getOperatorToken() {
-        return this.operatorToken;
+        return operatorToken;
     }
 }

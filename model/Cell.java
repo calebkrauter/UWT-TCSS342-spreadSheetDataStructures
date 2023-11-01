@@ -1,20 +1,36 @@
+/**
+ * @author Bairu Li
+ * @author Andy Comfort
+ */
 package model;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
+/**
+ * Represents a single cell in a spreadsheet
+ */
 public class Cell {
     
+    /** A constant for invalid cell references. */
     private static final int BAD_CELL = -1;
+    
+    /** The formula of the cell. */
     private String formula;
+    
+    /** The value of the cell. */
     private int value;
-    // the expression tree below represents the formula
+    
+    /** The formula stored as an expression tree. */
     private final ExpressionTree expressionTree;
     
-    // other cells that "points" to this cell
+    /** The set of cells that reference this cell. */
     private final Set<Cell> references;
     
+    /**
+     * Instantiates a new Cell.
+     */
     public Cell() {
         formula = "";
         value = 0;
@@ -22,40 +38,92 @@ public class Cell {
         references = new HashSet<>();
     }
     
+    /**
+     * Evaluates the cell's expression tree and sets
+     * value equal to the result.
+     *
+     * @param spreadsheet the spreadsheet
+     */
     public void evaluate(Spreadsheet spreadsheet) {
     	value = expressionTree.evaluate(spreadsheet);
     }
     
+    /**
+     * Gets the cell formula.
+     *
+     * @return the formula
+     */
     public String getFormula() {
         return formula;
     }
     
+    /**
+     * Gets the cell value.
+     *
+     * @return the value
+     */
     public int getValue() {
     	return value;
     }
     
+    /**
+     * Has formula returns true if the cell's formula
+     * has been set.
+     *
+     * @return true, if a formula has been set
+     */
     public boolean hasFormula() { return !formula.equals(""); }
     
+    /**
+     * Adds a cell that references this cell.
+     *
+     * @param c the cell to be added
+     */
     public void addReferences(Cell c) {
     	references.add(c);
     }
     
+    /**
+     * Remove a cell that references this cell.
+     *
+     * @param c the cell to be removed
+     */
     public void removeReferences(Cell c) {
     	references.remove(c);
     }
     
+    /**
+     * Gets the set of references as an array.
+     *
+     * @return the cell references as an array
+     */
     public Cell[] getReferences() {
     	return references.toArray(new Cell[0]);
     }
     
+    /**
+     * Gets the indegrees of this cell.
+     *
+     * @return the indegrees
+     */
     public int getIndegrees() {
     	return references.size();
     }
-    // gets the cells that this cell points to
+    
+    /**
+     * Gets the cell references that this cell points to.
+     *
+     * @return an array of CellTokens this cell points to
+     */
     public CellToken[] getDependents() {
     	return expressionTree.getDependents().toArray(new CellToken[0]);
     }
     
+    /**
+     * Sets the formula of this cell.
+     *
+     * @param s the new formula to be set
+     */
     public void setFormula(String s) {
     	expressionTree.BuildExpressionTree(getFormula(s));
     	formula = s;
@@ -192,6 +260,9 @@ public class Cell {
      * level of precedence, grouping is from left to right.
      * <p>
      * This algorithm follows the algorithm described in Weiss, pages 105-108.
+     *
+     * @param formula the formula
+     * @return the formula
      */
     Stack<Token> getFormula(String formula) {
         Stack<Token> returnStack = new Stack<>();  // stack of Tokens (representing a postfix expression)
@@ -222,7 +293,7 @@ public class Cell {
             if (isOperator(ch)) {
                 // We found an operator token
                 switch (ch) {
-                    case OperatorToken.Plus, OperatorToken.Minus, OperatorToken.Mult, OperatorToken.Div, OperatorToken.LeftParen -> {
+                    case OperatorToken.Plus, OperatorToken.Minus, OperatorToken.Mult, OperatorToken.Div, OperatorToken.Carat, OperatorToken.LeftParen -> {
                         // push operatorTokens onto the output stack until
                         // we reach an operator on the operator stack that has
                         // lower priority than the current one.
@@ -309,6 +380,7 @@ public class Cell {
         
         return returnStack;
     }
+    
     /**
      * Return true if the char ch is an operator of a formula.
      * Current operators are: +, -, *, /, (.
@@ -321,6 +393,7 @@ public class Cell {
                 (ch == OperatorToken.Minus) ||
                 (ch == OperatorToken.Mult) ||
                 (ch == OperatorToken.Div) ||
+                (ch == OperatorToken.Carat) ||
                 (ch == OperatorToken.LeftParen));
     }
     
@@ -348,8 +421,11 @@ public class Cell {
             case OperatorToken.Mult, OperatorToken.Div -> {
                 return 1;
             }
-            case OperatorToken.LeftParen -> {
+            case OperatorToken.Carat -> {
                 return 2;
+            }
+            case OperatorToken.LeftParen -> {
+                return 3;
             }
             default -> {
                 // This case should NEVER happen
